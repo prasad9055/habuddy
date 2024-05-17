@@ -33,7 +33,7 @@ if(isset($_POST['login_btn']))
            {
             $_SESSION['message']="Welcome to Dash Board";
            $url =  base_url('admin/dashboard.php');
-            header("Location: https:haabuddy.com/admin/dashboard/dashboard.php");
+            header("Location: https:haabuddy.com/dev/admin/dashboard/dashboard.php");
             exit(0);
 
            }
