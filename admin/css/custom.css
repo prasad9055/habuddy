@@ -1,0 +1,39 @@
+.upload-btn{
+    display: inline-block;
+    background-color: rgb(159, 158, 160);
+    color: white;
+    padding: 0.5rem;
+    font-family: sans-serif;
+    border-radius: 0.3rem;
+    content: Upload Feature Image !important;
+    cursor: pointer;
+    margin-top: 1rem;
+  }
+
+  #imgInp{
+    display: none;
+  }
+
+  #imgInp > label::before {
+    content: "After: ";
+    color: green;
+}
+
+.tiptext {
+  background:#ccc;
+  border: 1px #333 solid;
+
+}
+.description {
+  display:none;
+  position: relative;
+  font-weight: 600;
+  background-color: #ccc;
+
+ 
+}
+#myTable > tbody > tr:nth-child(1) > td.tiptext > ul.ulsizes{
+  font-size: 15px;
+  font-weight: 500;
+  color: aquamarine;
+}
