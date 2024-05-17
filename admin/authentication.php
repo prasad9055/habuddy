@@ -1,7 +1,7 @@
 <?php
 session_start();
-include('links.php');
-include($link.'/config/dbconfig.php'); 
+//include('links.php');
+include('../../admin/config/dbconfig.php'); 
 if(!isset($_SESSION['auth']))
 {
     $_SESSION['message']="Allowed Login Users Only !" ;

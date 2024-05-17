@@ -32,8 +32,9 @@ if(isset($_POST['login_btn']))
            if($_SESSION['role_as'] == '1')
            {
             $_SESSION['message']="Welcome to Dash Board";
-           $url =  base_url('admin/dashboard.php');
-            header("Location: https:haabuddy.com/admin/dashboard/dashboard.php");
+          
+           $link = base_url_return('admin/dashboard/dashboard.php');
+           echo "<script> location.href='$link'; </script>";
             exit(0);
 
            }

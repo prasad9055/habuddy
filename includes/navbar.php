@@ -104,8 +104,10 @@
             </form>
           </li>
         <?php  else : ?>
-            <li><a class="dropdown-item" href="login">Login</a></li>
-            <li> <a class="dropdown-item"  href="register">Register</a></li>
+
+            <li><a class="dropdown-item" href="<?=base_url('login')?>">Login</a></li>
+            <li> <a class="dropdown-item"  href="<?=base_url('register')?>">Register</a></li>
+            
       <?php  endif ;   ?>
   </ul>
 </div>
