@@ -26,11 +26,11 @@
     <div class="col-md-4 text-white ">
         <h5 class="mt-2">important Links</h5>
         <ul class="list-unstyled ">
-          <li><a href="about-us" class="text-decoration-white">About us </a></li>
-          <li><a href="privacy-policy" class="text-decoration-white">privacy Policy </a></li>
-          <li><a href="terms-and-conditions" class="text-decoration-white">Terms & Conditions </a></li>
-          <li><a href="disclaimer" class="text-decoration-white">Disclamier </a></li>
-          <li><a href="contact-us" class="text-decoration-white">Contact us </a></li>
+          <li><a href="<?=base_url('about-us')?>" class="text-decoration-white">About us </a></li>
+          <li><a href="<?=base_url('privacy-policy')?>" class="text-decoration-white">privacy Policy </a></li>
+          <li><a href="<?=base_url('terms-and-conditions')?>" class="text-decoration-white">Terms & Conditions </a></li>
+          <li><a href="<?=base_url('disclaimer')?>" class="text-decoration-white">Disclamier </a></li>
+          <li><a href="<?=base_url('contact-us')?>" class="text-decoration-white">Contact us </a></li>
     </ul>
     </div>
    </div>

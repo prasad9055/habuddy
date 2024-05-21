@@ -1,0 +1,8 @@
+
+create table analystic (id int(11) primary key auto_increment , analystic_code varchar(199), status tinyint(1) default(0));
+
+
+create table webmaster(id int(11) primary key auto_increment , webmaster_code varchar(199), status tinyint(1) default(0));
+
+
+create table general_seo(id int(11) primary key auto_increment , title varchar(199), description varchar(299) , keywords varchar(199)) ;
