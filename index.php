@@ -4,8 +4,25 @@
 session_start();
 include('includes/header.php');
 
-  $title="index page";
+$query = "select * from general_seo order by id DESC limit 1 ";
+$id='';
+$title='';
+$description='';
+$keywords='';
 
+$query_run = mysqli_query($con,$query);
+if($query_run){
+   foreach($query_run as $row){
+   
+       $id=$row['id'];
+       $title=$row['title'];
+       $description=$row['description'];
+       $keywords=$row['keywords'];
+
+   }
+
+}
+ 
 include('includes/meta-data.php');
 
 ?>

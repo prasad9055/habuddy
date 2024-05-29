@@ -18,7 +18,7 @@
                         <li><a class="dropdown-item" href="#!">Settings</a></li>
                         <li><hr class="dropdown-divider" /></li>
                         <li>
-                    <form action="../logout.php" method="POST">
+                    <form action="../../logout.php" method="POST">
                         <button type="submit" name="logout_btn" class="dropdown-item"  > logout</button>
                     </form>
                     </li>

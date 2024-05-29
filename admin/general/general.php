@@ -62,8 +62,364 @@
 ?>
 </div>
                         </div>
-
 </div>
+
+         <!-- Analystic  Tool code start  -->
+
+         <div class="card mb-3 col-md-8">
+             <form action="#" enctype="multipart/form-data" method="POST">
+                        <div class="card-header"><h6>Add Google Analystic code</h6></div>
+                        <div class="card-body">
+                             <div class="row">
+                             <div class="mb-3">
+
+  <textarea class="form-control" name="analystic_code" id="exampleFormControlTextarea1" rows="3" required></textarea>
+  <div class="col-auto mt-2 text-end">
+    <button type="submit" name="analystic_btn" class="btn btn-primary mb-3">Confirm identity</button>
+  </div>
+</div>
+      </form>
+   </div>
+      </div>
+     
+     <div class="row mb-3">
+    
+
+      <?php 
+
+            $query = "select * from analystic" ;
+            $query_run = mysqli_query($con,$query);
+            if(mysqli_num_rows( $query_run)>0){
+               foreach($query_run as $row){
+                   ?>
+                  <div class="col-md-11">
+                
+                  <textarea class="form-control" rows="3" readonly>
+                  <?=$row['analystic_code']?>
+                  </textarea>    
+               
+                
+       </div>
+       <div class="col-md-2 mt-2">
+         
+               <button class="btn btn-primary btn-sm">   
+                   <a href="?analystic_id=<?= $row['id'];?>&status=<?= $row['status'] =='1'?'De-Active':'Active';?>" class="text-white"><?= $row['status'] =='1'?'De-Active':'Active' ; ?>
+                 </a> </button>
+             
+       </div>
+       <div class="col-md-2 mt-2">
+      
+      
+           <button class="btn btn-danger btn-sm">
+           <a href="general.php?delete_analystic_id=<?= $row['id']?>" class="text-white">Delete  </a></button>
+          
+       </div>
+              
+       <?php
+               }
+            }
+
+
+                  if(isset($_POST['analystic_btn'])){
+
+                     $analystic = $_POST['analystic_code'] ;
+                   
+                  $query = "INSERT INTO analystic (analystic_code,status) VALUES('$analystic','1')" ;
+                  $query_run = mysqli_query($con,$query);
+                  if($query_run){
+                     $_SESSION['message']="Site Identity Conform Sucessfully";
+                     //   header('Location: general/general.php');
+                     echo "<script> location.href='general.php'; </script>";
+                        exit(0);
+                     }else{
+                        $_SESSION['message']="Something went wrong";
+                       // header('Location: general/general.php');
+                       echo "<script> location.href='general.php'; </script>";
+                        exit(0);
+                     }
+
+                  }
+
+
+
+                  if(isset($_GET['analystic_id']))  {
+                     $id = $_GET['analystic_id'] ;
+                     $status =$_GET['status'];
+                     $value='';
+                     if($status=='De-Active'){
+                         $value ='0';
+                     }else{
+                         $value ='1';
+                     }
+                    
+                     $query = "UPDATE analystic set status='$value' where id='$id'";
+                     $query_run = mysqli_query($con,$query);
+             
+                     if($query_run){
+                         $_SESSION['message']="Analystic code ".$status." Sucessfully";
+                      //   header('Location: general/general.php');
+                      echo "<script> location.href='general.php'; </script>";
+                         exit(0);
+                      }else{
+                         $_SESSION['message']="Something went wrong";
+                        // header('Location: general/general.php');
+                        echo "<script> location.href='general.php'; </script>";
+                         exit(0);
+                      }
+              
+                    }
+             
+             
+             
+                    if(isset($_GET['delete_analystic_id']))  {
+                     $id = $_GET['delete_analystic_id'] ;
+                     $query = "DELETE FROM analystic  where id='$id'";
+                     $query_run = mysqli_query($con,$query);
+             
+                     if($query_run){
+                         $_SESSION['message']="analystic Code Deleted Sucessfully";
+                      //   header('Location: general/general.php');
+                      echo "<script> location.href='general.php'; </script>";
+                         exit(0);
+                      }else{
+                         $_SESSION['message']="Something went wrong";
+                        // header('Location: general/general.php');
+                        echo "<script> location.href='general.php'; </script>";
+                         exit(0);
+                      }
+              
+                    }
+
+
+      
+      ?>
+ </div>
+
+      </div>
+
+
+
+
+      <!-- Analystic code end -->
+
+
+
+           <!-- Google WebMaster Tool code start  -->
+
+           <div class="card mb-3 col-md-8">
+             <form action="#" enctype="multipart/form-data" method="POST">
+                        <div class="card-header"><h6>Add Google Web-Master code</h6></div>
+                        <div class="card-body">
+                             <div class="row">
+                             <div class="mb-3">
+
+  <textarea class="form-control" name="webmaster_code" id="exampleFormControlTextarea1" rows="3" required></textarea>
+  <div class="col-auto mt-2 text-end">
+    <button type="submit" name="webmaster_btn" class="btn btn-primary mb-3">Confirm identity</button>
+  </div>
+</div>
+                  </form>
+   </div>
+      </div>
+     
+     <div class="row mb-3">
+    
+
+      <?php 
+
+            $query = "select * from webmaster" ;
+            $query_run = mysqli_query($con,$query);
+            if(mysqli_num_rows( $query_run)>0){
+               foreach($query_run as $row){
+                   ?>
+
+                  <div class="col-md-11">
+                  <textarea class="form-control" rows="3" readonly>
+                     <?= $row['webmaster_code']?> </textarea> 
+                
+       </div>
+       <div class="col-md-2">
+         
+               <button class="btn btn-primary btn-sm mt-2">   
+                   <a href="?webmaster_id=<?= $row['id'];?>&status=<?= $row['status'] =='1'?'De-Active':'Active';?>" class="text-white"><?= $row['status'] =='1'?'De-Active':'Active' ; ?>
+                 </a> </button>
+             
+       </div>
+       <div class="col-md-2">
+      
+      
+           <button class="btn btn-danger btn-sm mt-2">
+           <a href="general.php?delete_webmaster_id=<?= $row['id']?>" class="text-white">Delete  </a></button>
+          
+       </div>
+              
+       <?php
+               }
+            }
+
+
+                  if(isset($_POST['webmaster_btn'])){
+
+                     $webmaster = $_POST['webmaster_code'] ;
+                   
+                  $query = "INSERT INTO webmaster (webmaster_code,status) VALUES('$webmaster','1')" ;
+                  $query_run = mysqli_query($con,$query);
+                  if($query_run){
+                     $_SESSION['message']="Site Identity Conform Sucessfully";
+                     //   header('Location: general/general.php');
+                     echo "<script> location.href='general.php'; </script>";
+                        exit(0);
+                     }else{
+                        $_SESSION['message']="Something went wrong";
+                       // header('Location: general/general.php');
+                       echo "<script> location.href='general.php'; </script>";
+                        exit(0);
+                     }
+
+                  }
+
+
+
+                  if(isset($_GET['webmaster_id']))  {
+                     $id = $_GET['webmaster_id'] ;
+                     $status =$_GET['status'];
+                     $value='';
+                     if($status=='De-Active'){
+                         $value ='0';
+                     }else{
+                         $value ='1';
+                     }
+                    
+                     $query = "UPDATE webmaster set status='$value' where id='$id'";
+                     $query_run = mysqli_query($con,$query);
+             
+                     if($query_run){
+                         $_SESSION['message']="webmaster code ".$status." Sucessfully";
+                      //   header('Location: general/general.php');
+                      echo "<script> location.href='general.php'; </script>";
+                         exit(0);
+                      }else{
+                         $_SESSION['message']="Something went wrong";
+                        // header('Location: general/general.php');
+                        echo "<script> location.href='general.php'; </script>";
+                         exit(0);
+                      }
+              
+                    }
+             
+             
+             
+                    if(isset($_GET['delete_webmaster_id']))  {
+                     $id = $_GET['delete_webmaster_id'] ;
+                     $query = "DELETE FROM webmaster  where id='$id'";
+                     $query_run = mysqli_query($con,$query);
+             
+                     if($query_run){
+                         $_SESSION['message']="webmaster Code Deleted Sucessfully";
+                      //   header('Location: general/general.php');
+                      echo "<script> location.href='general.php'; </script>";
+                         exit(0);
+                      }else{
+                         $_SESSION['message']="Something went wrong";
+                        // header('Location: general/general.php');
+                        echo "<script> location.href='general.php'; </script>";
+                         exit(0);
+                      }
+              
+                    }
+
+
+      
+      ?>
+ </div>
+
+      </div>
+
+
+      <!-- Web Master code end -->
+
+      
+           <!-- General SEO code start  -->
+
+           <div class="card mb-3 col-md-8">
+             <form action="#" enctype="multipart/form-data" method="POST">
+                        <div class="card-header"><h6>Add General SEO </h6></div>
+                        <div class="card-body">
+                             <div class="row">
+
+                                <?php 
+                                 $query = "select * from general_seo order by id DESC limit 1 ";
+                                 $id='';
+                                 $title='';
+                                 $description='';
+                                 $keywords='';
+
+                                 $query_run = mysqli_query($con,$query);
+                                 if($query_run){
+                                    foreach($query_run as $row){
+                                    
+                                        $id=$row['id'];
+                                        $title=$row['title'];
+                                        $description=$row['description'];
+                                        $keywords=$row['keywords'];
+
+                                    }
+
+                                 }
+
+                                  if($id !=''){
+                                 $delete_query = "DELETE FROM `general_seo` WHERE id NOT IN ('$id') " ;
+                                  $query_run = mysqli_query($con, $delete_query);
+                                  
+                                  }
+
+                                ?>
+
+
+
+                             <div class="mb-3">
+                             <input class="form-control form-control-sm mb-4" type="text" name="title" value="<?=$title?>" placeholder="Site - Title " required>
+                             <input class="form-control form-control-sm mb-4" type="text" name="description" value="<?=$description?>"  placeholder="Site - Description " required>
+                             <input class="form-control form-control-sm mb-2" type="text" name="keywords"  value="<?=$keywords?>"  placeholder="Site - Key-words" required>
+  <div class="col-auto mt-2 text-end">
+    <button type="submit" name="seo_btn" class="btn btn-primary mb-3">Submit</button>
+  </div>
+   </form>
+</div>
+<?php
+         if(isset($_POST['seo_btn'])){
+
+           $seo_title = $_POST['title'];
+           $seo_description = $_POST['description'];
+           $seo_keywords = $_POST['keywords'];
+
+           $query ="INSERT INTO general_seo (title,description,keywords)values('$seo_title','$seo_description','$seo_keywords')";
+           $query_run = mysqli_query($con,$query);
+
+              if($query_run){
+                         $_SESSION['message']="meta -data Added Sucessfully";
+                      //   header('Location: general/general.php');
+                      echo "<script> location.href='general.php'; </script>";
+                         exit(0);
+                      }else{
+                         $_SESSION['message']="Something went wrong";
+                        // header('Location: general/general.php');
+                        echo "<script> location.href='general.php'; </script>";
+                         exit(0);
+                      }
+
+         }
+
+
+?>
+
+
+
+      </div>
+      </div>
+      </div>
+      <!-- SEO code end -->
+
 
 <?php 
        if(isset($_POST['logo_btn']))  {

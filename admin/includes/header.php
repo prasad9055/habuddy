@@ -23,11 +23,11 @@
     <body class="sb-nav-fixed">
 
     <?php   
-   include ($link.'/includes/nav-topbar.php');
+   include ($link.'includes/nav-topbar.php');
     ?>
 
     <div id="layoutSidenav">
-    <?php include($link.'/includes/sidebar.php');?>
+    <?php include($link.'includes/sidebar.php');?>
     <div id="layoutSidenav_content">
                 <main>
         

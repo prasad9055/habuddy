@@ -3,9 +3,9 @@
     error_reporting(E_ALL);
 ?>
 <?php 
-   include('../links.php');
-   include($link.'/authentication.php');
-   include ($link.'/includes/header.php');
+   include('../../admin/links.php');
+   include($link.'authentication.php');
+   include ($link.'includes/header.php');
 ?>
 
 <div class="container-fluid px-4">
@@ -59,7 +59,7 @@
 
 
 <?php 
-include($link.'/includes/footer.php'); 
-include($link.'/includes/scripts.php'); 
+include($link.'includes/footer.php'); 
+include($link.'includes/scripts.php'); 
 
 ?>

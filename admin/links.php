@@ -1,12 +1,9 @@
 
 <?php 
-   $path = $_SERVER['DOCUMENT_ROOT'];
-   $link= $path."/admin";
-  $css_link="https://haabuddy.com/admin";
+include('../../includes/function.php');
   
-  //local links
- //  $link= $path."/haabuddy/admin";
-  // $css_link="http://localhost/haabuddy/admin";
+  $css_link = base_url_return('/admin');
+  $link = include_link('');
   
 
 ?>
