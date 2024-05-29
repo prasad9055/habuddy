@@ -78,11 +78,11 @@
     <button type="submit" name="analystic_btn" class="btn btn-primary mb-3">Confirm identity</button>
   </div>
 </div>
-
+      </form>
    </div>
       </div>
      
-     <div class="row">
+     <div class="row mb-3">
     
 
       <?php 
@@ -92,21 +92,25 @@
             if(mysqli_num_rows( $query_run)>0){
                foreach($query_run as $row){
                    ?>
-                  <div class="col-md-7">
-                <pre><?= $row['analystic_code']?><pre>
+                  <div class="col-md-11">
+                
+                  <textarea class="form-control" rows="3" readonly>
+                  <?=$row['analystic_code']?>
+                  </textarea>    
+               
                 
        </div>
-       <div class="col-md-2">
+       <div class="col-md-2 mt-2">
          
-               <button class="btn btn-primary btn-sm mt-4">   
+               <button class="btn btn-primary btn-sm">   
                    <a href="?analystic_id=<?= $row['id'];?>&status=<?= $row['status'] =='1'?'De-Active':'Active';?>" class="text-white"><?= $row['status'] =='1'?'De-Active':'Active' ; ?>
                  </a> </button>
              
        </div>
-       <div class="col-md-2">
+       <div class="col-md-2 mt-2">
       
       
-           <button class="btn btn-danger btn-sm mt-4">
+           <button class="btn btn-danger btn-sm">
            <a href="general.php?delete_analystic_id=<?= $row['id']?>" class="text-white">Delete  </a></button>
           
        </div>
@@ -214,11 +218,11 @@
     <button type="submit" name="webmaster_btn" class="btn btn-primary mb-3">Confirm identity</button>
   </div>
 </div>
-
+                  </form>
    </div>
       </div>
      
-     <div class="row">
+     <div class="row mb-3">
     
 
       <?php 
@@ -228,13 +232,15 @@
             if(mysqli_num_rows( $query_run)>0){
                foreach($query_run as $row){
                    ?>
-                  <div class="col-md-7">
-                <pre><?= $row['webmaster_code']?><pre>
+
+                  <div class="col-md-11">
+                  <textarea class="form-control" rows="3" readonly>
+                     <?= $row['webmaster_code']?> </textarea> 
                 
        </div>
        <div class="col-md-2">
          
-               <button class="btn btn-primary btn-sm mt-4">   
+               <button class="btn btn-primary btn-sm mt-2">   
                    <a href="?webmaster_id=<?= $row['id'];?>&status=<?= $row['status'] =='1'?'De-Active':'Active';?>" class="text-white"><?= $row['status'] =='1'?'De-Active':'Active' ; ?>
                  </a> </button>
              
@@ -242,7 +248,7 @@
        <div class="col-md-2">
       
       
-           <button class="btn btn-danger btn-sm mt-4">
+           <button class="btn btn-danger btn-sm mt-2">
            <a href="general.php?delete_webmaster_id=<?= $row['id']?>" class="text-white">Delete  </a></button>
           
        </div>
@@ -378,6 +384,7 @@
   <div class="col-auto mt-2 text-end">
     <button type="submit" name="seo_btn" class="btn btn-primary mb-3">Submit</button>
   </div>
+   </form>
 </div>
 <?php
          if(isset($_POST['seo_btn'])){
